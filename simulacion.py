@@ -1,4 +1,4 @@
-#Simulacion de datos creados por una maquina
+#Simulacion de datos creados por una maquina ahora en DESUSO
 from random import randint
 import random
 import pandas as pd
