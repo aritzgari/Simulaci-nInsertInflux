@@ -4,6 +4,8 @@ from influxdb import InfluxDBClient
 
 #generar cliente influx.
 client = InfluxDBClient(host='localhost', port=8086)
+
+#Seleccionar la base de datos con la información.
 client.switch_database('plc')
 
 #Leer el csv con los datos.
@@ -35,6 +37,10 @@ for row in datos.iterrows():
             }
         ]
     client.write_points(json_body)
+
+#Cerrar la conexión después de ejecutar.
 client.close()
+
+#Eliminar la información del csv para que no ocupe espacio.
 df = pd.DataFrame()
 df.to_csv('/home/aritz/Scripts/DatosPLC.csv')
